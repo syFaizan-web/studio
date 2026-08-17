@@ -519,7 +519,7 @@ export function BookingForm() {
                             name="date"
                             value={form.date.startsWith('20') ? form.date : ''}
                             onChange={handleChange}
-                            className="w-full rounded-xl border border-amber-900/15 bg-white px-4 py-2.5 text-sm text-[hsl(28_25%_12%)] outline-none transition-colors focus:border-amber-500"
+                            className="w-full rounded-xl border border-amber-900/15 bg-white px-3 py-2.5 text-sm text-[hsl(28_25%_12%)] outline-none transition-colors focus:border-amber-500"
                           />
                         </div>
 
