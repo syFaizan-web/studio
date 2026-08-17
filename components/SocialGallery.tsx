@@ -43,7 +43,7 @@ export function SocialGallery() {
             href={siteConfig.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-[hsl(30_15%_6%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-[hsl(30_10%_20%)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[hsl(30_15%_6%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500"
           >
             <Instagram className="h-4 w-4" />
             Follow on Instagram
@@ -70,7 +70,7 @@ export function SocialGallery() {
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                 loading="lazy"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/40 group-hover:opacity-100">
+              <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-gradient-to-br group-hover:from-purple-600/80 group-hover:to-pink-500/80 group-hover:opacity-100">
                 <Instagram className="h-6 w-6 text-white" />
               </div>
             </motion.a>

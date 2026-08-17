@@ -111,6 +111,12 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.4 }}
+          whileHover={{ 
+            scale: 1.02,
+            rotateX: 2,
+            rotateY: 2
+          }}
+          style={{ perspective: 1000 }}
           className="font-display text-2xl leading-[1.1] text-white text-balance sm:text-3xl lg:text-4xl drop-shadow-md font-light"
         >
           Your Dream Wedding.
@@ -136,6 +142,11 @@ export function Hero() {
         onClick={toggleSound}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ 
+          scale: 1.1,
+          rotate: 15
+        }}
+        whileTap={{ scale: 0.95 }}
         transition={{ delay: 1.2, duration: 0.5 }}
         aria-label={isMuted ? 'Unmute video sound' : 'Mute video sound'}
         className="absolute bottom-8 right-6 z-20 flex h-11 items-center gap-2 rounded-full border border-amber-900/15 bg-white/80 px-4 text-xs font-semibold text-[hsl(28_25%_12%)] backdrop-blur-xl shadow-lg transition-all hover:bg-white sm:bottom-10 sm:right-10"

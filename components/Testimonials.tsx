@@ -43,6 +43,13 @@ export function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ 
+                scale: 1.03,
+                rotateY: 2,
+                rotateX: 2,
+                y: -5
+              }}
+              style={{ perspective: 1000 }}
               className="relative rounded-3xl border border-amber-900/15 bg-[hsl(35_25%_94%)] p-8 shadow-xs transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl"
             >
               <Quote className="mb-4 h-8 w-8 text-[hsl(38_75%_48%)]/40" />

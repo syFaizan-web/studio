@@ -45,6 +45,13 @@ export function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ 
+                scale: 1.02,
+                rotateY: 2,
+                rotateX: 2,
+                z: 10
+              }}
+              style={{ perspective: 1000 }}
               className={`group relative overflow-hidden rounded-3xl border border-amber-900/15 bg-[hsl(35_25%_94%)] transition-all duration-500 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10 ${
                 i === 0 ? 'sm:col-span-2 lg:col-span-1' : ''
               }`}

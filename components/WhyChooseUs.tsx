@@ -52,6 +52,13 @@ export function WhyChooseUs() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotateX: 5,
+                  rotateY: 5,
+                  y: -10
+                }}
+                style={{ perspective: 1000 }}
                 className="rounded-3xl border border-amber-900/15 bg-[hsl(35_25%_94%)] p-7 transition-all duration-300 hover:border-amber-500/40 hover:shadow-xl shadow-xs"
               >
                 <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-amber-500/30 bg-amber-500/10 text-[hsl(38_75%_48%)]">
@@ -76,15 +83,26 @@ export function WhyChooseUs() {
           transition={{ duration: 0.7, delay: 0.3 }}
           className="mt-16 grid grid-cols-2 gap-8 rounded-3xl border border-amber-900/15 bg-gradient-to-r from-[hsl(35_25%_94%)] via-white to-[hsl(35_25%_94%)] p-10 sm:grid-cols-4 sm:p-14 shadow-lg"
         >
-          {stats.map((s) => (
-            <div key={s.label} className="text-center">
+          {stats.map((s, i) => (
+            <motion.div 
+              key={s.label} 
+              className="text-center"
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.5, delay: i * 0.1 }}
+              whileHover={{ 
+                scale: 1.1,
+                rotate: [0, -5, 5, 0]
+              }}
+            >
               <p className="font-display text-4xl text-[hsl(38_75%_44%)] sm:text-5xl font-bold">
                 {s.value}
               </p>
               <p className="mt-2 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_25%)] sm:text-sm">
                 {s.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>
