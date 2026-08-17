@@ -70,7 +70,7 @@ export function BookingForm() {
     date: '',
     location: '',
     guests: '',
-    services: 'Both',
+    services: 'Bothss',
     package: 'Signature',
     message: '',
   });
@@ -211,7 +211,7 @@ export function BookingForm() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mx-auto mt-4 max-w-xl text-sm text-[hsl(28_15%_35%)] sm:text-base"
           >
-            Use our quick 3-step wizard or 1-click presets. Your inquiry will automatically pre-fill in WhatsApp for instant response.
+            Simple 3-step process: Select your event type, choose your preferred date & package, and send your inquiry. Quick responses guaranteed!
           </motion.p>
         </div>
 
@@ -255,9 +255,9 @@ export function BookingForm() {
               <div className="mb-8 border-b border-amber-900/10 pb-6">
                 <div className="flex items-center justify-between gap-2 sm:gap-4">
                   {[
-                    { number: 1, title: 'Event & Service' },
-                    { number: 2, title: 'Schedule & Package' },
-                    { number: 3, title: 'Contact & Send' },
+                    { number: 1, title: 'What?', subtitle: 'Event Type' },
+                    { number: 2, title: 'When?', subtitle: 'Date & Package' },
+                    { number: 3, title: 'Who?', subtitle: 'Your Details' },
                   ].map((s) => {
                     const isActive = step === s.number;
                     const isPassed = step > s.number;
@@ -269,16 +269,16 @@ export function BookingForm() {
                           if (s.number === 2 && isStep1Valid) setStep(2);
                           if (s.number === 3 && isStep1Valid && isStep2Valid) setStep(3);
                         }}
-                        className={`flex flex-1 items-center gap-2 cursor-pointer transition-opacity ${
+                        className={`flex flex-1 flex-col items-center gap-1 cursor-pointer transition-all ${
                           isActive
-                            ? 'opacity-100'
+                            ? 'opacity-100 scale-105'
                             : isPassed
-                            ? 'opacity-80 hover:opacity-100'
+                            ? 'opacity-80 hover:opacity-100 hover:scale-102'
                             : 'opacity-40'
                         }`}
                       >
                         <div
-                          className={`flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-xs font-bold transition-all ${
+                          className={`flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold transition-all ${
                             isActive
                               ? 'bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] text-white shadow-md'
                               : isPassed
@@ -286,11 +286,12 @@ export function BookingForm() {
                               : 'border border-amber-900/20 bg-white/50 text-[hsl(28_25%_40%)]'
                           }`}
                         >
-                          {isPassed ? <CheckCircle2 className="h-4 w-4 text-[hsl(38_75%_48%)]" /> : s.number}
+                          {isPassed ? <CheckCircle2 className="h-5 w-5 text-[hsl(38_75%_48%)]" /> : s.number}
                         </div>
-                        <span className="hidden text-xs font-bold tracking-wide text-[hsl(28_25%_12%)] sm:inline truncate">
-                          {s.title}
-                        </span>
+                        <div className="text-center">
+                          <span className="block text-xs font-bold text-[hsl(28_25%_12%)]">{s.title}</span>
+                          <span className="block text-[0.65rem] text-[hsl(28_15%_40%)]">{s.subtitle}</span>
+                        </div>
                       </div>
                     );
                   })}
@@ -320,9 +321,9 @@ export function BookingForm() {
                     >
                       {/* Quick Preset Buttons (User Friendly 1-Tap Fill) */}
                       <div className="rounded-2xl border border-amber-900/15 bg-white p-4 shadow-xs">
-                        <div className="flex items-center gap-1.5 mb-2 text-xs font-bold uppercase tracking-wider text-[hsl(38_75%_44%)]">
+                        <div className="flex items-center gap-1.5 mb-3 text-xs font-bold uppercase tracking-wider text-[hsl(38_75%_44%)]">
                           <Zap className="h-3.5 w-3.5 fill-[hsl(38_75%_48%)] text-[hsl(38_75%_48%)]" />
-                          <span>Quick Booking Presets (1-Click Selection)</span>
+                          <span>Popular Quick Options</span>
                         </div>
                         <div className="flex flex-wrap gap-2">
                           <button
@@ -335,9 +336,9 @@ export function BookingForm() {
                                 package: 'Signature',
                               }));
                             }}
-                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-3.5 py-1.5 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50"
+                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-4 py-2 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50 hover:scale-105"
                           >
-                            💍 Full Wedding Film &amp; Photo
+                            💍 Wedding Package
                           </button>
                           <button
                             type="button"
@@ -349,9 +350,9 @@ export function BookingForm() {
                                 package: 'Essential',
                               }));
                             }}
-                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-3.5 py-1.5 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50"
+                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-4 py-2 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50 hover:scale-105"
                           >
-                            ✨ Pre-Wedding Shoot
+                            ✨ Pre-Wedding
                           </button>
                           <button
                             type="button"
@@ -363,9 +364,9 @@ export function BookingForm() {
                                 package: 'Essential',
                               }));
                             }}
-                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-3.5 py-1.5 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50"
+                            className="rounded-full border border-amber-900/15 bg-[hsl(35_25%_94%)] px-4 py-2 text-xs font-semibold text-[hsl(28_25%_12%)] transition-all hover:border-amber-500/50 hover:bg-amber-50 hover:scale-105"
                           >
-                            🥂 Party / Celebration
+                            🥂 Party Event
                           </button>
                         </div>
                       </div>
@@ -373,7 +374,7 @@ export function BookingForm() {
                       {/* Select Event Type Cards */}
                       <div>
                         <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
-                          1. Select Event Type *
+                          Choose your event type
                         </label>
                         <div className="grid gap-3 sm:grid-cols-3">
                           {eventTypeOptions.map((item) => {
@@ -418,7 +419,7 @@ export function BookingForm() {
                       {/* Select Service Cards */}
                       <div>
                         <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
-                          2. Select Coverage Type *
+                          Choose photo, video, or both
                         </label>
                         <div className="grid gap-3 sm:grid-cols-3">
                           {serviceChoiceOptions.map((item) => {
@@ -473,7 +474,7 @@ export function BookingForm() {
                           disabled={!isStep1Valid}
                           className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02] disabled:opacity-50"
                         >
-                          <span>Next: Schedule &amp; Package</span>
+                          <span>Next Step</span>
                           <ChevronRight className="h-4 w-4" />
                         </button>
                       </div>
@@ -495,7 +496,7 @@ export function BookingForm() {
                         <div>
                           <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                             <Calendar className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                            Event Date / Timeframe
+                            When is your event?
                           </label>
                           <div className="flex flex-wrap gap-1.5 mb-2">
                             {['Next 1-3 Mos', '3-6 Mos', '2026 Season'].map((chip) => (
@@ -525,7 +526,7 @@ export function BookingForm() {
                         <div>
                           <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                             <MapPin className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                            Location / Venue
+                            Where is it?
                           </label>
                           <input
                             type="text"
@@ -540,7 +541,7 @@ export function BookingForm() {
                         <div>
                           <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                             <Users className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                            Estimated Guests
+                            How many guests?
                           </label>
                           <input
                             type="number"
@@ -556,7 +557,7 @@ export function BookingForm() {
                       {/* Select Package Cards */}
                       <div>
                         <label className="mb-3 block text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
-                          Select Package Tier
+                          Choose your package
                         </label>
                         <div className="grid gap-4 sm:grid-cols-3">
                           {packages.map((pkg) => {
@@ -622,7 +623,7 @@ export function BookingForm() {
                           onClick={nextStep}
                           className="flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] px-7 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-amber-500/20 transition-all hover:scale-[1.02]"
                         >
-                          <span>Next: Contact Details</span>
+                          <span>Next Step</span>
                           <ChevronRight className="h-4 w-4" />
                         </button>
                       </div>
@@ -645,7 +646,7 @@ export function BookingForm() {
                           <div>
                             <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                               <User className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                              Full Name *
+                              Your name
                             </label>
                             <input
                               type="text"
@@ -668,7 +669,7 @@ export function BookingForm() {
                             <div>
                               <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                                 <Phone className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                                Phone / WhatsApp *
+                                Your phone number
                               </label>
                               <input
                                 type="tel"
@@ -689,7 +690,7 @@ export function BookingForm() {
                             <div>
                               <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                                 <Mail className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                                Email Address
+                                Your email (optional)
                               </label>
                               <input
                                 type="email"
@@ -711,7 +712,7 @@ export function BookingForm() {
                           <div>
                             <label className="mb-2 flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[hsl(28_25%_20%)]">
                               <FileText className="h-3.5 w-3.5 text-[hsl(38_75%_48%)]" />
-                              Special Notes / Vision (Optional)
+                              Any special requests?
                             </label>
                             <textarea
                               name="message"

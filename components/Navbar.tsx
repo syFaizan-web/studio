@@ -104,6 +104,7 @@ export function Navbar() {
               opacity: 1,
               scale: shrunk ? 0.92 : 1,
             }}
+            whileHover={{ scale: 1.03 }}
             exit={{ y: 100, x: '-50%', opacity: 0 }}
             transition={{ duration: 0.35, ease: [0.32, 0.72, 0, 1] }}
             className="fixed left-1/2 bottom-4 z-50 w-[calc(100%-1.75rem)] max-w-md sm:max-w-lg lg:hidden"
