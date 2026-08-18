@@ -53,13 +53,6 @@ export function Packages() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ 
-                scale: pkg.highlighted ? 1.02 : 1.05,
-                rotateY: 3,
-                rotateX: 3,
-                y: -8
-              }}
-              style={{ perspective: 1000 }}
               className={`relative flex flex-col justify-between rounded-3xl p-8 transition-all duration-500 ${
                 pkg.highlighted
                   ? 'border-2 border-amber-500 bg-gradient-to-b from-[hsl(35_25%_94%)] via-white to-[hsl(35_25%_94%)] shadow-xl shadow-amber-500/15'

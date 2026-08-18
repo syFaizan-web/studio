@@ -116,11 +116,6 @@ export function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.4, delay: i * 0.05 }}
-                whileHover={{ 
-                  scale: 1.03,
-                  rotateZ: 1,
-                  y: -5
-                }}
                 onClick={() => openLightbox(item)}
                 className="group relative block w-full overflow-hidden rounded-xl"
               >

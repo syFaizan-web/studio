@@ -101,7 +101,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-all hover:border-pink-500 hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-colors hover:border-amber-500 hover:text-[hsl(38_75%_48%)]"
               >
                 <Instagram className="h-4 w-4" />
               </a>
@@ -110,7 +110,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="YouTube"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-all hover:border-red-600 hover:bg-red-600 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-colors hover:border-amber-500 hover:text-[hsl(38_75%_48%)]"
               >
                 <Youtube className="h-4 w-4" />
               </a>
@@ -119,7 +119,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Facebook"
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-all hover:border-blue-600 hover:bg-blue-600 hover:text-white"
+                className="flex h-9 w-9 items-center justify-center rounded-full border border-amber-900/15 bg-white text-[hsl(28_25%_20%)] shadow-xs transition-colors hover:border-amber-500 hover:text-[hsl(38_75%_48%)]"
               >
                 <Facebook className="h-4 w-4" />
               </a>
