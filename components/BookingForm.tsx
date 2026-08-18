@@ -18,6 +18,7 @@ import {
   Heart,
   PartyPopper,
   Briefcase,
+  Plus,
   Gift,
   HelpCircle,
   User,
@@ -152,6 +153,20 @@ export function BookingForm() {
     const url = whatsappLink(buildMessage());
     window.open(url, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
+    // Reset form
+    setForm({
+      eventType: '',
+      services: '',
+      package: '',
+      date: '',
+      location: '',
+      guests: '',
+      name: '',
+      phone: '',
+      email: '',
+      message: '',
+    });
+    setErrors({});
   };
 
   const handleEmailSubmit = (e: React.FormEvent) => {
@@ -161,6 +176,20 @@ export function BookingForm() {
     const body = encodeURIComponent(buildMessage());
     window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
+    // Reset form
+    setForm({
+      eventType: '',
+      services: '',
+      package: '',
+      date: '',
+      location: '',
+      guests: '',
+      name: '',
+      phone: '',
+      email: '',
+      message: '',
+    });
+    setErrors({});
   };
 
   const isStep1Valid = !!form.eventType && !!form.services;
@@ -228,15 +257,15 @@ export function BookingForm() {
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-[hsl(35_75%_50%)] to-[hsl(38_80%_65%)] shadow-lg shadow-amber-500/25"
+                className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] shadow-lg shadow-amber-500/25"
               >
-                <MessageCircle className="h-9 w-9 text-black" />
+                <CheckCircle2 className="h-10 w-10 text-white" />
               </motion.div>
-              <h3 className="font-display text-2xl text-white sm:text-3xl">
+              <h3 className="font-display text-2xl font-bold text-[hsl(28_25%_12%)] sm:text-3xl">
                 Inquiry Sent Successfully!
               </h3>
-              <p className="mt-3 max-w-md text-sm text-white/70">
-                Your inquiry details are pre-filled. Send the message and our wedding concierge will respond with availability within 2 hours.
+              <p className="mt-3 max-w-md text-sm text-[hsl(28_15%_40%)] leading-relaxed">
+                Thank you for your interest! We've received your inquiry and will get back to you within 2 hours.
               </p>
               <button
                 type="button"
@@ -244,9 +273,10 @@ export function BookingForm() {
                   setSubmitted(false);
                   setStep(1);
                 }}
-                className="mt-8 rounded-full border border-amber-400/30 bg-amber-500/10 px-6 py-2.5 text-xs font-semibold text-amber-200 transition-all hover:bg-amber-500/20"
+                className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:scale-105"
               >
-                Edit Inquiry Details
+                <Plus className="h-4 w-4" />
+                <span>Send Another Inquiry</span>
               </button>
             </div>
           ) : (
