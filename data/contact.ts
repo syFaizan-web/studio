@@ -5,10 +5,10 @@ export const siteConfig = {
   email: 'hello@frameandstory.com',
   phone: '+91 98765 43210',
   whatsapp: '919876543210',
-  instagram: 'https://instagram.com/frameandstory',
+  instagram: 'https://instagram.com/tahataqiproductions',
   youtube: 'https://youtube.com/@frameandstory',
   facebook: 'https://facebook.com/frameandstory',
-  serviceArea: 'Mumbai • Pune • Goa • Destination Worldwide',
+  serviceArea: 'Australia • Sydney • Destination Worldwide',
   stickyBar: {
     ctaText: 'Ready to capture your story?',
     bookLabel: 'Book Now',

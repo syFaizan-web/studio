@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   Send,
@@ -67,16 +67,48 @@ export function BookingForm() {
     name: '',
     phone: '',
     email: '',
-    eventType: 'Wedding',
+    eventType: '',
     date: '',
     location: '',
     guests: '',
-    services: 'Bothss',
-    package: 'Signature',
+    services: '',
+    package: '',
     message: '',
   });
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [mounted, setMounted] = useState(false);
+
+  // Load saved data from localStorage on mount
+  useEffect(() => {
+    setMounted(true);
+    const savedStep = localStorage.getItem('bookingStep');
+    const savedForm = localStorage.getItem('bookingFormData');
+    const savedSubmitted = localStorage.getItem('bookingSubmitted');
+    
+    if (savedStep) {
+      setStep(parseInt(savedStep, 10));
+    }
+    if (savedForm) {
+      try {
+        setForm(JSON.parse(savedForm));
+      } catch (e) {
+        console.error('Error parsing saved form data:', e);
+      }
+    }
+    if (savedSubmitted === 'true') {
+      setSubmitted(true);
+    }
+  }, []);
+
+  // Save data to localStorage whenever it changes
+  useEffect(() => {
+    if (mounted) {
+      localStorage.setItem('bookingStep', step.toString());
+      localStorage.setItem('bookingFormData', JSON.stringify(form));
+      localStorage.setItem('bookingSubmitted', submitted.toString());
+    }
+  }, [step, form, submitted, mounted]);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -153,6 +185,9 @@ export function BookingForm() {
     const url = whatsappLink(buildMessage());
     window.open(url, '_blank', 'noopener,noreferrer');
     setSubmitted(true);
+    // Clear persisted data after successful submission
+    localStorage.removeItem('bookingStep');
+    localStorage.removeItem('bookingFormData');
     // Reset form
     setForm({
       eventType: '',
@@ -176,6 +211,9 @@ export function BookingForm() {
     const body = encodeURIComponent(buildMessage());
     window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
     setSubmitted(true);
+    // Clear persisted data after successful submission
+    localStorage.removeItem('bookingStep');
+    localStorage.removeItem('bookingFormData');
     // Reset form
     setForm({
       eventType: '',
@@ -253,30 +291,31 @@ export function BookingForm() {
           className="rounded-3xl border border-amber-900/15 bg-[hsl(35_25%_94%)] p-6 sm:p-10 shadow-2xl backdrop-blur-2xl ring-1 ring-black/5"
         >
           {submitted ? (
-            <div className="flex flex-col items-center justify-center py-16 text-center">
+            <div className="flex flex-col items-center justify-center py-10 text-center">
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
-                className="mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-tr from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] shadow-lg shadow-amber-500/25"
+                className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-tr from-emerald-500 to-green-600 shadow-lg shadow-emerald-500/25"
               >
-                <CheckCircle2 className="h-10 w-10 text-white" />
+                <CheckCircle2 className="h-7 w-7 text-white" />
               </motion.div>
-              <h3 className="font-display text-2xl font-bold text-[hsl(28_25%_12%)] sm:text-3xl">
+              <h3 className="font-display text-xl font-bold text-[hsl(28_25%_12%)] sm:text-2xl">
                 Inquiry Sent Successfully!
               </h3>
-              <p className="mt-3 max-w-md text-sm text-[hsl(28_15%_40%)] leading-relaxed">
-                Thank you for your interest! We've received your inquiry and will get back to you within 2 hours.
+              <p className="mt-2 max-w-md text-sm text-[hsl(28_15%_40%)] leading-relaxed">
+                Thank you! We'll get back to you within 2 hours.
               </p>
               <button
                 type="button"
                 onClick={() => {
                   setSubmitted(false);
                   setStep(1);
+                  localStorage.removeItem('bookingSubmitted');
                 }}
-                className="mt-8 flex items-center gap-2 rounded-full bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] px-6 py-3 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:scale-105"
+                className="mt-6 flex items-center gap-2 rounded-full bg-gradient-to-r from-emerald-500 to-green-600 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md transition-all hover:scale-105"
               >
-                <Plus className="h-4 w-4" />
-                <span>Send Another Inquiry</span>
+                <Plus className="h-3.5 w-3.5" />
+                <span>New Inquiry</span>
               </button>
             </div>
           ) : (

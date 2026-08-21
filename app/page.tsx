@@ -1,3 +1,6 @@
+'use client';
+
+import { useEffect } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { IntroSection } from '@/components/IntroSection';
@@ -19,6 +22,19 @@ import { Footer } from '@/components/Footer';
 import { StickyActionBar } from '@/components/StickyActionBar';
 
 export default function Home() {
+  // Preserve scroll position/hash on refresh
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      // Small delay to ensure DOM is ready
+      setTimeout(() => {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    }
+  }, []);
   return (
     <>
       <Navbar />
