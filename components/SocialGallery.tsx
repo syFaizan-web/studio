@@ -6,12 +6,12 @@ import { Instagram } from 'lucide-react';
 import { siteConfig } from '@/data/contact';
 
 const images = [
-  'https://images.pexels.com/photos/30372608/pexels-photo-30372608.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/27176823/pexels-photo-27176823.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/30682919/pexels-photo-30682919.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/30142374/pexels-photo-30142374.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/5152571/pexels-photo-5152571.jpeg?auto=compress&cs=tinysrgb&w=600',
-  'https://images.pexels.com/photos/29708240/pexels-photo-29708240.jpeg?auto=compress&cs=tinysrgb&w=600',
+  '/wedding.jpeg',
+  '/engagement.jpeg',
+  '/cinematic.jpeg',
+  '/event.jpeg',
+  '/personal.jpeg',
+  '/special.jpeg',
 ];
 
 export function SocialGallery() {
@@ -43,7 +43,7 @@ export function SocialGallery() {
             href={siteConfig.instagram}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 rounded-full bg-[hsl(30_15%_6%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-[hsl(30_10%_20%)]"
+            className="group inline-flex items-center gap-2 rounded-full bg-[hsl(30_15%_6%)] px-6 py-3 text-sm font-medium text-white transition-all hover:bg-gradient-to-br hover:from-purple-600 hover:to-pink-500"
           >
             <Instagram className="h-4 w-4" />
             Follow on Instagram
