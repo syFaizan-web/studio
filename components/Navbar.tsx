@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Menu, X, Camera, Calendar, MessageCircle, Sparkles } from 'lucide-react';
+import { Menu, X, Camera, Calendar, MessageCircle, Sparkles, Instagram } from 'lucide-react';
 import { navLinks, siteConfig, whatsappLink } from '@/data/contact';
 
 export function Navbar() {
@@ -81,14 +81,15 @@ export function Navbar() {
           </ul>
 
           <div>
-            <Link
-              href="/#contact"
-              onClick={scrollToContact}
-              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-amber-500/30 bg-gradient-to-r from-[hsl(38_75%_48%)] to-[hsl(32_80%_52%)] px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-amber-500/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-amber-500/30"
+            <a
+              href={siteConfig.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex items-center gap-2 overflow-hidden rounded-full border border-pink-500/30 bg-gradient-to-r from-purple-600 to-pink-500 px-5 py-2.5 text-xs font-bold uppercase tracking-wider text-white shadow-md shadow-pink-500/20 transition-all duration-300 hover:scale-[1.03] hover:shadow-lg hover:shadow-pink-500/30"
             >
-              <Sparkles className="h-3.5 w-3.5 flex-shrink-0 text-white transition-transform duration-300 group-hover:rotate-12" />
-              <span className="whitespace-nowrap">Book Your Date</span>
-            </Link>
+              <Instagram className="h-3.5 w-3.5 flex-shrink-0 text-white transition-transform duration-300 group-hover:rotate-12" />
+              <span className="whitespace-nowrap">Follow on Instagram</span>
+            </a>
           </div>
         </nav>
       </header>

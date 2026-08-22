@@ -102,6 +102,19 @@ export function Portfolio() {
           </div>
         </div>
 
+        {/* Featured Video */}
+        <div className="mb-8 rounded-2xl overflow-hidden shadow-xl">
+          <div className="relative" style={{ paddingTop: '56.25%' }}>
+            <iframe 
+              className="absolute top-0 left-0 w-full h-full"
+              src="https://galleries.vidflow.co/videos/n6ep2dt2" 
+              frameBorder="0" 
+              allowFullScreen
+              title="Featured Video"
+            />
+          </div>
+        </div>
+
         {/* Masonry grid */}
         <motion.div
           layout
